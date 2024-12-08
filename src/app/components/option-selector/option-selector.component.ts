@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-option-selector',
-    imports: [CommonModule],
+  imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './option-selector.component.html',
     styleUrls: ['./option-selector.component.css']
