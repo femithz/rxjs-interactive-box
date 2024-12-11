@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="logo">
+    Acro Companion
+  </div>
+  <div class="header-links">
+    @if (stateService.selectedBox$ | async) {
+      <div class="total">
+        Total value: {{ stateService.totalValue$ | async }}
+      </div>
+    }
+  </div>
+</header>

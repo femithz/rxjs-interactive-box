@@ -1,7 +1,10 @@
-<div
-  class="box"
-  [class.selected]="isSelected"
-  (click)="selectBox()">
-  {{ box.id }} <br />
-  <span>{{ box.selectedOption || 'Select element' }}</span>
+<div class="boxes">
+    <div
+      class="box"
+      *ngFor="let box of (stateService.boxes$ | async)"
+      [class.selected]="(stateService.selectedBox$ | async)?.id === box.id"
+      (click)="stateService.selectBox(box.id)">
+      {{ box.id }} <br />
+      <span>{{ box.selectedOption || 'Select element' }}</span>
+    </div>
 </div>

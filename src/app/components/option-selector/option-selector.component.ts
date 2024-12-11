@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StateService } from "../../services/state.service";
 
 @Component({
     selector: 'app-option-selector',
@@ -9,13 +10,5 @@ import { CommonModule } from '@angular/common';
     styleUrls: ['./option-selector.component.css']
 })
 export class OptionSelectorComponent {
-  @Input() frontSaltoOptions: string[] = [];
-  @Input() backSaltoOptions: string[] = [];
-  @Input() otherOptions: string[] = [];
-  @Input() selectedOption: string | null = null;
-  @Output() optionSelected = new EventEmitter<string>();
-
-  select(option: string) {
-    this.optionSelected.emit(option);
-  }
+  constructor(public stateService: StateService) {}
 }

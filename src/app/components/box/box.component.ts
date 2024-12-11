@@ -1,7 +1,8 @@
 import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Box} from "../../models/box.model";
-
+import {StateService} from "../../services/state.service";
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'app-box',
@@ -12,11 +13,6 @@ import {Box} from "../../models/box.model";
     styleUrls: ['./box.component.css']
 })
 export class BoxComponent {
-  @Input() box!: Box;
-  @Input() isSelected: boolean = false;
-  @Output() boxSelected = new EventEmitter<number>();
-
-  selectBox() {
-    this.boxSelected.emit(this.box.id);
+  constructor(public stateService: StateService) {
   }
 }
